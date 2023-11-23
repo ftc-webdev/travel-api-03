@@ -9,7 +9,7 @@ const Countries = (json)  => {
       index[country.alpha3Code] = country
     })
 
-    console.log("index", index)
+    // console.log("index", index)
 
     const get = async (code) => {
       if(index[code]) return index[code]

@@ -10,13 +10,13 @@
   this code will no longer work. We need to use the browser geolocation api
   this code will return the location of the server!!
 */
-const init = (url) => {
+const init = (apiUrl) => {
   const service = "amazonaws"
 
   const endpoints = {
     ip : {
       async get () {
-        const res = await fetch(`${url}/${service}/ip`)
+        const res = await fetch(`${apiUrl}/${service}/ip`)
         const data = await res.text()
         // console.log("data.getIPFromAmazon", data)
         return data
