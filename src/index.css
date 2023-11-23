@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.delete-icon {
+  color:red;
+  float : right;
+
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid steelblue;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+ul {
+  margin: 5px;
+  padding: 5px;
+}
+.airlines {
+  /* max-width: 90%; */
+  /* margin: 10px; */
+  overflow: auto;
+  /* min-height: 300px; */
+  border: 1px solid steelblue;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.field .label {
+  display: inline-block;
+  width: 100px;
+  margin: 0px;
+}
+
+.airline, .airport {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: block;
+  text-align:left;
+}
+
+.airline.selected {
+  border-left: 5px solid green;
+}
+
+.airline h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel {
+  display: block;
+  text-align: left;
+}
+
+.form {
+  margin: 5px;
+  border: 1px solid darkgray;
+  border-radius: 5px;
+}
+
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+  display: block;
+  padding: 3px 7px;
+}
+
+.form-control input, .form-control select {
+  width: 97%;
+  height: 40px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+.form-control-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-control-check label {
+  flex: 1;
+}
+
+.form-control-check input {
+  flex: 2;
+  height: 20px;
+}
+
+footer {
+  margin-top: 30px;
+  text-align: center;
+}
