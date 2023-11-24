@@ -3,6 +3,7 @@ import './App.css';
 import AirlineData from './components/AirlineData'
 import AirportData from './components/AirportData'
 import Countries from './components/Countries'
+import AirportSearch from './components/AirportSearch'
 
 import apis from './apis'
 
@@ -24,6 +25,9 @@ const App = () => {
         Airline Travel API Portal        
       </header>
       <main>
+
+        <AirportSearch label="Airport"/>
+
         <Countries label="Countries" />
         
         <AirlineData />

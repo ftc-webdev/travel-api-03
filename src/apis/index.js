@@ -1,6 +1,7 @@
 import aviationReferenceDataApi from './aviationReferenceDataApi'
 import amazonaws from './amazonaws'
 import ip2location from './ip2location'
+import airports from './airports'
 
 const port = "3001" // need to get this from the server
 const apiUrl = `http://localhost:${port}/api/v1`
@@ -20,6 +21,7 @@ const apiUrl = `http://localhost:${port}/api/v1`
  and we use this function to create an object bound to the url
 */
 const apis = {
+  airports: airports(apiUrl),
   aviationReferenceDataApi: aviationReferenceDataApi(apiUrl),
   amazonaws: amazonaws(apiUrl),
   ip2location: ip2location(apiUrl),

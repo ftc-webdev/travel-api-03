@@ -16,7 +16,7 @@ const Country = ({code, name}) => {
 const Countries = ({label}) => {
 
   return (
-    <div className="countries">
+    <div className="countries form-control">
       <label >{label}</label>
       <input type="text" list="countries" />
       <datalist id="countries">
