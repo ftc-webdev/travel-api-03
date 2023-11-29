@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import apis from '../apis'
 // console.log( { apis })
 const { airports } = apis // not sure why I cannot import this as a named import!!
@@ -15,19 +15,30 @@ const Airport = ({code, name}) => {
 
 }
 
-const Airports = ({label, onSelect}) => {
+const Airports = ({label, value, onSelect}) => {
   
   const [ airportData, setAirportData ] = useState()
   
+  useEffect(() => {
+    if(value) {
+      setAirportData(value)
+    }
+  }, [value])
+
   const onEnter = async (e) => {
     if(e.keyCode === 13) {
       const text = e.target.value
       const data = await airports.search.get(text)
+      console.log("target", e.target, data)
       setAirportData(data)
+      
+      // if its defined, call it with the data
+      onSelect && onSelect(data)
+
       revealDataList(e)
       if(data.length === 1) {
         e.target.value = data[0].name
-        onSelect && onSelect(e.target.value)
+        onSelect && onSelect(data[0].iata_code)
       }
     }
   }

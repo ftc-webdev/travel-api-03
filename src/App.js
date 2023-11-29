@@ -1,46 +1,17 @@
-import { useState } from 'react'
 import './App.css';
-import AirlineData from './components/AirlineData'
-import AirportData from './components/AirportData'
-import Countries from './components/Countries'
-import AirportSearch from './components/AirportSearch'
 
-import apis from './apis'
-
+import FlightSearch from './components/FlightSearch'
 
 const App = () => {
   // const [ geoData, setGeoData ] = useState()
-  const [ country, setCountry ] = useState()
 
-  const onGeoLocateClick = () => {
-    apis.ip2location.location.get()
-    .then(data => {
-      // setGeoData(data)
-      setCountry(data.country_name)
-    })
-  }
   return (
     <div className="App">
       <header className="App-header">
         Airline Travel API Portal        
       </header>
       <main>
-
-        <AirportSearch label="Airport"/>
-
-        <Countries label="Countries" />
-        
-        <AirlineData />
-        
-        <AirportData />
-
-        <button
-          className="btn"
-          onClick={onGeoLocateClick}
-        >
-          GeoLocate This Computer
-        </button>
-        {country && <div><span>Country</span><span>{country}</span></div>}
+        <FlightSearch />
       </main>
 
     </div>

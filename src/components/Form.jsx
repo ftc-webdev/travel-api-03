@@ -5,6 +5,14 @@ const Form = () => {
   )
 }
 
+const Button = ({ onClick, label }) => {
+  return (
+    <button className="btn" onClick={onClick}>
+        {label}
+    </button>
+  )
+}
+
 const Select = ({value, values, label, code = "code", name = "name"}) => {
 
   return (
@@ -24,7 +32,7 @@ const Select = ({value, values, label, code = "code", name = "name"}) => {
 
 }
 
-const Input = ({value, label, onEnter, ...options}) => {
+const Input = ({value, label, onEnter, type, ...options}) => {
 
   if(!options) options = {}
 
@@ -42,7 +50,7 @@ const Input = ({value, label, onEnter, ...options}) => {
     <div className="form-control">
         { label && <label>{label}</label> }
         <input 
-          type="text" 
+          type={type ? type : "text"} 
           value={value}
           onChange={onChange}
           onKeyDown={onKeyDown}
@@ -59,7 +67,8 @@ Input.defaultOptions = {
 
 export {
   Input,
-  Select
+  Select,
+  Button,
 }
 
 export default Form

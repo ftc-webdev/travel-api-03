@@ -16,6 +16,9 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.airline-logo {
+  width: 50px;
+}
 .container {
   max-width: 500px;
   margin: 30px auto;
