@@ -11,7 +11,10 @@
   float : right;
 
 }
-
+ul, li, a {
+  display: inline-block;
+  margin: 10px;
+}
 body {
   font-family: 'Poppins', sans-serif;
 }

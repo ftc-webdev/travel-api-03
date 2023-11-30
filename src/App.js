@@ -1,6 +1,9 @@
 import './App.css';
-
-import FlightSearch from './components/FlightSearch'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Booking  from './pages/Booking'
+import NotFound  from './pages/NotFound'
+import NavBar from './components/NavBar'
 
 const App = () => {
   // const [ geoData, setGeoData ] = useState()
@@ -11,7 +14,13 @@ const App = () => {
         Airline Travel API Portal        
       </header>
       <main>
-        <FlightSearch />
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/booking" element={<Booking />} />
+          
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
       </main>
 
     </div>
