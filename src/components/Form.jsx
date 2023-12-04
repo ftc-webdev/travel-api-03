@@ -4,7 +4,22 @@ const Form = () => {
     <div>Form</div>
   )
 }
+let radioCounter = 1
+const RadioButton = ({ label, value, name, onChange }) => {
+  return (
+    <>
+      <label htmlFor={"radio-" + radioCounter}>{label}</label>
+      <input 
+        id={"radio-" + radioCounter++} 
+        type="radio" 
+        value={value} 
+        name={name}
+        onChange={onChange}
+      />
+    </>
 
+  )
+}
 const Button = ({ onClick, label }) => {
   return (
     <button className="btn" onClick={onClick}>
@@ -16,7 +31,7 @@ const Button = ({ onClick, label }) => {
 const Select = ({value, values, label, code = "code", name = "name"}) => {
 
   return (
-    <div className="form-control">
+    <div className="form-control column">
         { label && <label>{label}</label> }
         <select>
         {
@@ -47,7 +62,7 @@ const Input = ({value, label, onEnter, type, ...options}) => {
   }
   
   return (
-    <div className="form-control">
+    <div className="form-control column">
         { label && <label>{label}</label> }
         <input 
           type={type ? type : "text"} 
@@ -69,6 +84,7 @@ export {
   Input,
   Select,
   Button,
+  RadioButton,
 }
 
 export default Form

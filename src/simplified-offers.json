@@ -1,0 +1,264 @@
+{
+  "passengers": [
+    {
+      "type": "adult",
+      "loyalty_programme_accounts": [],
+      "id": "pas_0000AcSfjpfkttQyVmU17S",
+      "given_name": null,
+      "family_name": null,
+      "age": null
+    }
+  ],
+  "offers": [
+    {
+      "total_currency": "EUR",
+      "total_amount": "56.97",
+      "slices": [
+        {
+          "id": "sli_0000AcSfjpqOGLwP2lSVhI",
+          "source": {
+            "iata_code": "ORK",
+            "name": "Cork Airport",
+            "country_code": "IE"
+          },
+          "destination": {
+            "iata_code": "LHR",
+            "name": "Heathrow Airport",
+            "country_code": "GB"
+          },
+          "duration": "PT1H19M"
+        }
+      ],
+      "airline": {
+        "name": "American Airlines",
+        "logo_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/AA.svg",
+        "iata_code": "AA"
+      }
+    },
+    {
+      "total_currency": "EUR",
+      "total_amount": "57.32",
+      "slices": [
+        {
+          "id": "sli_0000AcSfjpq2Hfep1fIE8u",
+          "source": {
+            "iata_code": "ORK",
+            "name": "Cork Airport",
+            "country_code": "IE"
+          },
+          "destination": {
+            "iata_code": "LHR",
+            "name": "Heathrow Airport",
+            "country_code": "GB"
+          },
+          "duration": "PT1H19M"
+        }
+      ],
+      "airline": {
+        "name": "Duffel Airways",
+        "logo_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+        "iata_code": "ZZ"
+      }
+    },
+    {
+      "total_currency": "EUR",
+      "total_amount": "58.07",
+      "slices": [
+        {
+          "id": "sli_0000AcSfjpq2Hfep1fIE8y",
+          "source": {
+            "iata_code": "ORK",
+            "name": "Cork Airport",
+            "country_code": "IE"
+          },
+          "destination": {
+            "iata_code": "LHR",
+            "name": "Heathrow Airport",
+            "country_code": "GB"
+          },
+          "duration": "PT1H19M"
+        }
+      ],
+      "airline": {
+        "name": "British Airways",
+        "logo_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/BA.svg",
+        "iata_code": "BA"
+      }
+    },
+    {
+      "total_currency": "EUR",
+      "total_amount": "66.06",
+      "slices": [
+        {
+          "id": "sli_0000AcSfjpqOGLwP2lSVhR",
+          "source": {
+            "iata_code": "ORK",
+            "name": "Cork Airport",
+            "country_code": "IE"
+          },
+          "destination": {
+            "iata_code": "LHR",
+            "name": "Heathrow Airport",
+            "country_code": "GB"
+          },
+          "duration": "PT1H19M"
+        }
+      ],
+      "airline": {
+        "name": "American Airlines",
+        "logo_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/AA.svg",
+        "iata_code": "AA"
+      }
+    },
+    {
+      "total_currency": "EUR",
+      "total_amount": "68.40",
+      "slices": [
+        {
+          "id": "sli_0000AcSfjpq2Hfep1fIE8z",
+          "source": {
+            "iata_code": "ORK",
+            "name": "Cork Airport",
+            "country_code": "IE"
+          },
+          "destination": {
+            "iata_code": "LHR",
+            "name": "Heathrow Airport",
+            "country_code": "GB"
+          },
+          "duration": "PT1H19M"
+        }
+      ],
+      "airline": {
+        "name": "Duffel Airways",
+        "logo_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+        "iata_code": "ZZ"
+      }
+    },
+    {
+      "total_currency": "EUR",
+      "total_amount": "68.64",
+      "slices": [
+        {
+          "id": "sli_0000AcSfjpq2Hfep1fIE96",
+          "source": {
+            "iata_code": "ORK",
+            "name": "Cork Airport",
+            "country_code": "IE"
+          },
+          "destination": {
+            "iata_code": "LHR",
+            "name": "Heathrow Airport",
+            "country_code": "GB"
+          },
+          "duration": "PT1H19M"
+        }
+      ],
+      "airline": {
+        "name": "British Airways",
+        "logo_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/BA.svg",
+        "iata_code": "BA"
+      }
+    },
+    {
+      "total_currency": "EUR",
+      "total_amount": "135.90",
+      "slices": [
+        {
+          "id": "sli_0000AcSfjpqOGLwP2lSVhY",
+          "source": {
+            "iata_code": "ORK",
+            "name": "Cork Airport",
+            "country_code": "IE"
+          },
+          "destination": {
+            "iata_code": "LHR",
+            "name": "Heathrow Airport",
+            "country_code": "GB"
+          },
+          "duration": "PT1H19M"
+        }
+      ],
+      "airline": {
+        "name": "American Airlines",
+        "logo_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/AA.svg",
+        "iata_code": "AA"
+      }
+    },
+    {
+      "total_currency": "EUR",
+      "total_amount": "142.19",
+      "slices": [
+        {
+          "id": "sli_0000AcSfjpq2Hfep1fIE94",
+          "source": {
+            "iata_code": "ORK",
+            "name": "Cork Airport",
+            "country_code": "IE"
+          },
+          "destination": {
+            "iata_code": "LHR",
+            "name": "Heathrow Airport",
+            "country_code": "GB"
+          },
+          "duration": "PT1H19M"
+        }
+      ],
+      "airline": {
+        "name": "Duffel Airways",
+        "logo_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+        "iata_code": "ZZ"
+      }
+    },
+    {
+      "total_currency": "EUR",
+      "total_amount": "143.76",
+      "slices": [
+        {
+          "id": "sli_0000AcSfjpqOGLwP2lSVhB",
+          "source": {
+            "iata_code": "ORK",
+            "name": "Cork Airport",
+            "country_code": "IE"
+          },
+          "destination": {
+            "iata_code": "LHR",
+            "name": "Heathrow Airport",
+            "country_code": "GB"
+          },
+          "duration": "PT1H19M"
+        }
+      ],
+      "airline": {
+        "name": "British Airways",
+        "logo_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/BA.svg",
+        "iata_code": "BA"
+      }
+    },
+    {
+      "total_currency": "EUR",
+      "total_amount": "219.98",
+      "slices": [
+        {
+          "id": "sli_0000AcSfjpqkF2Dz3rcnFU",
+          "source": {
+            "iata_code": "ORK",
+            "name": "Cork Airport",
+            "country_code": "IE"
+          },
+          "destination": {
+            "iata_code": "LHR",
+            "name": "Heathrow Airport",
+            "country_code": "GB"
+          },
+          "duration": "PT1H19M"
+        }
+      ],
+      "airline": {
+        "name": "American Airlines",
+        "logo_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/AA.svg",
+        "iata_code": "AA"
+      }
+    }
+  ]
+}

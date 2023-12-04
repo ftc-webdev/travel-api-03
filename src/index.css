@@ -6,6 +6,60 @@
   padding: 0;
 }
 
+.border {
+  border: 1px solid green;
+  border-radius: 5px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+.offers {
+  width: 95%;
+  margin: auto;
+}
+.offers table, .offers tr, .offers td, .offers th {
+  border: 1px solid darkgrey;
+  /* border-collapse: collapse; */
+}
+.offers > tr:nth-child(even) {
+  background-color: lightgray;
+  color: black;
+}
+.single-return label {
+  margin: 5px;
+  padding: 5px;
+}
+.airline-logo-name {
+  flex: 4;
+}
+.airline-logo {
+  flex:1;
+  display: inline-block;
+}
+.table-airline-name {
+  flex: 2;
+  /* text-align:right; */
+}
+
+.sidebar {
+  flex: 1
+}
+.canvas {
+  flex: 3
+}
+
+
 .delete-icon {
   color:red;
   float : right;

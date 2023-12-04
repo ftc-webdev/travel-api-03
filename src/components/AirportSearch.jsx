@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import Select from 'react-select'
+
 import apis from '../apis'
 // console.log( { apis })
 const { airports } = apis // not sure why I cannot import this as a named import!!
@@ -8,78 +10,58 @@ const { airports } = apis // not sure why I cannot import this as a named import
 
 */
 
-const Airport = ({code, name}) => {
-  return (
-    <option value={code}>{name}</option>
-  )
-
-}
-
 const Airports = ({label, value, onSelect}) => {
   
   const [ airportData, setAirportData ] = useState()
-  
+
   useEffect(() => {
     if(value) {
-      setAirportData(value)
     }
   }, [value])
 
-  const onEnter = async (e) => {
-    if(e.keyCode === 13) {
-      const text = e.target.value
-      const data = await airports.search.get(text)
-      console.log("target", e.target, data)
+  const isLetter = (char) => /^[a-z]$/i.test(char)
+
+  const onChange = (option) => {
+    console.log("selected option", option)
+    onSelect(option?.value)
+
+  }
+
+  const onKeyDown = async (e) => {
+    // console.log("current input", e.target.value, e.key)
+    let text = e.target.value
+    
+    if(isLetter(e.key)) text += e.key
+
+    if(e.keyCode === 13 || text.length >= 3) {
+      let data = await airports.search.get(text)
+
+      data = data.map(airport => {
+        return { value: airport.iata_code, label: airport.name }
+      })
+      // console.log("airport data", data)
       setAirportData(data)
       
-      // if its defined, call it with the data
-      onSelect && onSelect(data)
-
-      revealDataList(e)
       if(data.length === 1) {
         e.target.value = data[0].name
         onSelect && onSelect(data[0].iata_code)
       }
     }
   }
-// another attempt at hack to make datalist appear
-const revealDataList = (e) => {
-
-  const keyboardEvent = document.createEvent("KeyboardEvent");
-  const initMethod = typeof keyboardEvent.initKeyboardEvent !== 'undefined' ? "initKeyboardEvent" : "initKeyEvent"
-
-  keyboardEvent[initMethod](
-    "keyup", // event type : keydown, keyup, keypress
-    true, // bubbles
-    true, // cancelable
-    window, // viewArg: should be window
-    false, // ctrlKeyArg
-    false, // altKeyArg
-    false, // shiftKeyArg
-    false, // metaKeyArg
-    40, // keyCodeArg : unsigned long the virtual key code, else 0
-    0 // charCodeArgs : unsigned long the Unicode character associated with the depressed key, else 0
-  )
-  e.target.focus();
-  e.target.dispatchEvent(keyboardEvent);
-  
-}
 
 
   return (
-    <div className="airports form-control">
+    <div className="airports form-control column">
       <label >{label}</label>
-      <input 
-        type="text" 
-        list="airports" 
-        placeholder="Enter an airport or city"
-        onKeyDown={onEnter}
-      />
-      <datalist id="airports">
-      {
-        airportData && airportData.map(airport => <Airport key={airport.iataCode} code={airport.iataCode} name={airport.name} />)
-      }
-      </datalist>
+
+      <Select 
+        placeholder="Enter an airport code or city"
+        options={airportData} 
+        onKeyDown={onKeyDown}
+        onChange={onChange}
+        isClearable={true}
+    />
+
 
     </div>
   )
