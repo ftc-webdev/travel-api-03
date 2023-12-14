@@ -1,16 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom'
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import App from './App';
+import './index.css';
+import { NotificationProvider } from './context/Notification'
+import User from './components/User'
+import ErrorBoundary from './components/ErrorBoundary'
+import Flight from './components/Flight'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <User.Provider >
+          <NotificationProvider >
+            <Flight.Provider> 
+              <App />
+            </Flight.Provider> 
+          </NotificationProvider >
+        </User.Provider>
+      </BrowserRouter>
+    </ErrorBoundary>
+
   </React.StrictMode>
 );
 

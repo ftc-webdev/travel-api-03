@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Select from 'react-select'
-
-import apis from '../apis'
+import { isLetter } from '../../utils'
+import apis from '../../apis'
 // console.log( { apis })
 const { airports } = apis // not sure why I cannot import this as a named import!!
 
@@ -12,39 +12,43 @@ const { airports } = apis // not sure why I cannot import this as a named import
 
 const Airports = ({label, value, onSelect}) => {
   
-  const [ airportData, setAirportData ] = useState()
+  const [ airportData, setAirportData ] = useState()  // declares a state variable, and a mutator
+  const [ searchValue, setSearchValue ] = useState(value)
 
-  useEffect(() => {
-    if(value) {
-    }
-  }, [value])
+  // useEffect(() => {
+  //   if(value) {
+  //   }
+  // }, [value])
 
-  const isLetter = (char) => /^[a-z]$/i.test(char)
-
+  // option: { value, label } = {iata_code, airport_name }
   const onChange = (option) => {
     console.log("selected option", option)
-    onSelect(option?.value)
-
+    setSearchValue(option)
+    console.log("searchValue", searchValue)
+    onSelect(option?.value) // option && option.value
   }
 
   const onKeyDown = async (e) => {
-    // console.log("current input", e.target.value, e.key)
+    // console.log("keydowncurrent input", e.target.value, e.key)
     let text = e.target.value
     
     if(isLetter(e.key)) text += e.key
 
     if(e.keyCode === 13 || text.length >= 3) {
+      console.log("enter")
       let data = await airports.search.get(text)
 
       data = data.map(airport => {
         return { value: airport.iata_code, label: airport.name }
       })
       // console.log("airport data", data)
-      setAirportData(data)
+      setAirportData(data)  // calling state mutator -> triggers a UI update
       
       if(data.length === 1) {
-        e.target.value = data[0].name
-        onSelect && onSelect(data[0].iata_code)
+        console.log("assign value", data[0])
+        // e.target.value = data[0].name
+        setSearchValue(data[0])  // need an object of { label, value }
+        onSelect && onSelect(data[0].value)
       }
     }
   }
@@ -60,6 +64,7 @@ const Airports = ({label, value, onSelect}) => {
         onKeyDown={onKeyDown}
         onChange={onChange}
         isClearable={true}
+        value={searchValue}
     />
 
 

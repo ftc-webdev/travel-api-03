@@ -7,7 +7,8 @@ const init = (apiUrl) => {
     search : {
       async get (data) {
         const resp = await fetchJson(`${apiUrl}/${service}/search/`, { 
-          method: "POST", body: JSON.stringify(data), 
+          method: "POST", 
+          body: JSON.stringify(data), 
           headers: {
             "Content-Type": "application/json"
           }
@@ -24,7 +25,42 @@ const init = (apiUrl) => {
         })
         return resp
       }
-    }
+    },
+    orders: {
+      async get (data) {
+        const resp = await fetchJson(`${apiUrl}/${service}/orders/`, { 
+          method: "POST", 
+          body: JSON.stringify(data), 
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        return resp
+      }
+    },
+    payments: {
+      async create (data) { // {amount:###, currency:"GBP" }
+        const resp = await fetchJson(`${apiUrl}/${service}/payments/`, { 
+          method: "POST", 
+          body: JSON.stringify(data), 
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        return resp
+      },
+      async confirm (id) { // {amount:###, currency:"GBP" }
+        const resp = await fetchJson(`${apiUrl}/${service}/payments/${id}`, { 
+          method: "GET", 
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+        return resp
+      },
+      
+    },
+
 
   }
   

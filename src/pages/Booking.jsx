@@ -1,5 +1,7 @@
 import { Tabs, Tab, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import BookingContext from '../context/Booking';
+import { useContext } from 'react'
 
 const OldBooking = () => {
   return (
@@ -12,6 +14,12 @@ const OldBooking = () => {
 
 
 const Booking = () => {
+
+  // use bookingContext to continue the booking process
+  // complete passenger details
+  const bookingContext = useContext(BookingContext)
+  const { selectedOffer } = bookingContext 
+
   return (
     <>
       <h2>Booking</h2>

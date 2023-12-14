@@ -3,6 +3,11 @@ import amazonaws from './amazonaws'
 import ip2location from './ip2location'
 import airports from './airports'
 import duffel from './duffel'
+import auth from './auth'
+
+import restInit from './rest'
+
+import { fetchJson } from '../utils'
 
 const port = "3001" // need to get this from the server
 const apiUrl = `http://localhost:${port}/api/v1`
@@ -27,7 +32,19 @@ const apis = {
   amazonaws: amazonaws(apiUrl),
   ip2location: ip2location(apiUrl),
   duffel: duffel(apiUrl),
-  
+  auth: auth(apiUrl, fetchJson),
+  // users: {
+  //   create (obj) {},
+  //   get (id) {},
+  //   update (obj) {},
+  //   del (id) {},
+  //   getAll (search) {},
+  // },
 }
+
+const { rest } = restInit(apiUrl, apis)
+
+rest("users", "/users", "cruds")
+// rest("books", "/books", "cruds")
 
 export default apis

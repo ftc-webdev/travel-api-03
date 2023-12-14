@@ -1,7 +1,7 @@
-import Field from './Field'
+import Field from '../Field'
 import { useState, useEffect } from 'react'
 // import { sampleSearchCountryCode } from '../data'
-import models from '../models'
+import models from '../../models'
 /*
 {
   "iataCode": "JFK",

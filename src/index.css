@@ -24,13 +24,25 @@
   flex-basis: 100%;
   flex: 1;
 }
+
+input[type="radio"] {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.header-user {
+  display: inline-block;
+  /* float: right; */
+  text-align: right;
+}
 .offers {
   width: 95%;
   margin: auto;
 }
 .offers table, .offers tr, .offers td, .offers th {
   border: 1px solid darkgrey;
-  /* border-collapse: collapse; */
+  border-collapse: collapse;
 }
 .offers > tr:nth-child(even) {
   background-color: lightgray;
@@ -49,7 +61,6 @@
 }
 .table-airline-name {
   flex: 2;
-  /* text-align:right; */
 }
 
 .sidebar {
@@ -180,7 +191,7 @@ ul {
 }
 
 .form-control label {
-  display: block;
+  display: inline-block;
   padding: 3px 7px;
 }
 

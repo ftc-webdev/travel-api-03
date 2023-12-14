@@ -1,54 +1,55 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom'
+import { useContext } from 'react'
 
-// pages
-import Home from './pages/Home'
-import Booking  from './pages/Booking'
-import NotFound  from './pages/NotFound'
-import PastBookings from './pages/PastBookings'
-import ChildrenPage from './pages/ChildrenPage'
+import { NotificationContext }  from './context/Notification'
+import Notifications from './components/Notifications'
 
-import NavBar from './components/NavBar'
-import SideBar from './components/SideBar'
+import User from './components/User'
+import Pages from './pages' // load index.jsx
+import { init } from './utils'
 
 const App = () => {
-  // const [ geoData, setGeoData ] = useState()
+
+  const { notifications, message } = useContext(NotificationContext)
+  
+  init(message) // pass the error handling function into the utils lib
 
   return (
-    <div className="App">
-      <header className="App-header">
-        Airline Travel API Portal        
-      </header>
+    <>
+      <User.Provider>
+        <div className="App">
+          <header className="App-header">
+            <span className="header">Airline Travel API Portal</span>
+            <User />        
+          </header>
 
-      <main class="xcontainer">
+          <main className="xcontainer">
 
-        <NavBar />
+            <Pages.NavBar />
 
-        <div className="row">
+            <div className="row">
 
-          <div className="sidebar column">
-            <SideBar>
-              <div>This is some text</div>
-              <div>This is some more text</div>
-            </SideBar>
-          </div>
+              <div className="sidebar column">
+                <Pages.SideBar>
+                  {/* <div>This is a child "component"</div>
+                  <div>This is another child entry</div> */}
+                </Pages.SideBar>
+              </div>
 
-          <div className="canvas column">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/booking" element={<Booking />} />
-              <Route path="/past-bookings" element={<PastBookings />} />
-              <Route path="/children" element={<ChildrenPage />} />
-              
-              <Route path="/*" element={<NotFound />} />
-            </Routes>
-          </div>
+              <div className="canvas column">
+                <Pages.Routes />
+              </div>
+            </div>
+
+            <Notifications messages={notifications} />
+
+          </main>
+
         </div>
+      </User.Provider>
+    </>
 
-      </main>
-
-    </div>
-  );
+  )
 }
 
 export default App;

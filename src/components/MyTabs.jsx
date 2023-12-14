@@ -1,15 +1,15 @@
 import { Tabs, Tab, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
-// options: array of { value, component }
-const MyTabs = ({ options }) => {
+// tabs: array of { label, component }
+const MyTabs = ({ tabs }) => {
   return (
     <Tabs>
       <TabList>
-        { options.map(option => <Tab>{option.label}</Tab> ) } 
+        { tabs.map(tab => <Tab>{tab.label}</Tab> ) } 
       </TabList>
 
-      { options.map(option => <TabPanel>{option.component}</TabPanel> )}
+      { tabs.map(tab => <TabPanel>{tab.component}</TabPanel> )}
 
     </Tabs>
   )

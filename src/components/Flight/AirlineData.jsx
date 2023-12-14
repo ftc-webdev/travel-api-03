@@ -1,8 +1,8 @@
 import { useState } from 'react'
 // import { sampleSearchAirlineCode } from '../data'
-import { Input } from './Form'
+import { Input } from '../Form'
 import Airline from './Airline'
-import models from '../models'
+import models from '../../models'
 
 const AirlineData = () => {
   

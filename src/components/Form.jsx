@@ -1,25 +1,52 @@
-
+import { useState } from 'react'
 const Form = () => {
   return (
     <div>Form</div>
   )
 }
 let radioCounter = 1
-const RadioButton = ({ label, value, name, onChange }) => {
+const RadioButton = ({ label, value, name, onChange, reverse = false, ...options }) => {
   return (
     <>
-      <label htmlFor={"radio-" + radioCounter}>{label}</label>
+      { !reverse && <label htmlFor={"radio-" + radioCounter}>{label}</label> }
       <input 
         id={"radio-" + radioCounter++} 
         type="radio" 
         value={value} 
         name={name}
         onChange={onChange}
+        {...options}
       />
+      { reverse && <label htmlFor={"radio-" + radioCounter}>{label}</label> }
     </>
 
   )
 }
+// this takes an array of { label, value } and renders a RadioButtonGroup 
+const RadioButtons = ({ label, value, name, onChange, values, reverse = false, ...options }) => {
+  const onInputChange = (e) => {
+    onChange(e.target.value, e)
+  }
+
+  return (
+    <>
+      {/* <div className="form-control column"> */}
+        { label && <label htmlFor="">{label}</label> }  
+        { values.map(({label, _value}) => <RadioButton
+            name={name}
+            label={label} 
+            value={_value}
+            checked={_value === value}
+            onChange={onInputChange}
+            reverse={reverse}
+            {...options}  
+          />
+        )}
+      {/* </div> */}
+    </>
+  )
+}
+
 const Button = ({ onClick, label }) => {
   return (
     <button className="btn" onClick={onClick}>
@@ -27,17 +54,23 @@ const Button = ({ onClick, label }) => {
     </button>
   )
 }
-
-const Select = ({value, values, label, code = "code", name = "name"}) => {
+let counter = 1
+const Select = ({value, name, values, label, onChange, code = "value", display = "label"}) => {
 
   return (
     <div className="form-control column">
         { label && <label>{label}</label> }
-        <select>
+        <select
+          name={name}
+          onChange={onChange}
+          value={value}
+        >
         {
           values.map((element) => (
-            <option value={ element[code] } selected={element[code] === value}>
-            { element[name] }  
+            <option key={counter++} value={ element[code] } 
+              // selected={element[code] === value}
+            >
+            { element[display] }  
             </option>
           ))
         }
@@ -47,18 +80,14 @@ const Select = ({value, values, label, code = "code", name = "name"}) => {
 
 }
 
-const Input = ({value, label, onEnter, type, ...options}) => {
+
+const Input = ({value, label, onEnter, onChange, type, ...options}) => {
 
   if(!options) options = {}
 
-  const onKeyDown = (e) => {
-    // console.log("onKeyDown", e)
-    if(e.keyCode === 13 && onEnter ) onEnter(e)
-  }
-
-  const onChange = (e) => {
-    // console.log("Form.Input.onChange", options.onChange)
-    if(options.onChange) options.onChange(e)
+  const onInputChange = (e) => {
+    // console.log("Form.Input.onChange", e)
+    onChange(e.target.value, e)
   }
   
   return (
@@ -67,8 +96,7 @@ const Input = ({value, label, onEnter, type, ...options}) => {
         <input 
           type={type ? type : "text"} 
           value={value}
-          onChange={onChange}
-          onKeyDown={onKeyDown}
+          onChange={onInputChange}
           disabled={options.disabled}
           {...options} 
         />
@@ -85,6 +113,7 @@ export {
   Select,
   Button,
   RadioButton,
+  RadioButtons,
 }
 
 export default Form

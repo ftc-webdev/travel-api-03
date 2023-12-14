@@ -9,7 +9,7 @@ const SideBar = ({ children }) => {
           <MenuItem component={<NavLink to="/"/>}> Home </MenuItem>
           <MenuItem component={<NavLink to="/booking"/>}> Booking </MenuItem>
           <MenuItem component={<NavLink to="/past-bookings"/>}> Past Bookings </MenuItem>
-          <MenuItem component={<NavLink to="/children"/>}> Children </MenuItem>
+          {/* <MenuItem component={<NavLink to="/children"/>}> Children </MenuItem> */}
           { children }
         </Menu>
       </Sidebar>

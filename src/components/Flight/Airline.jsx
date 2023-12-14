@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import Field from './Field'
-import models from '../models'
+import Field from '../Field'
+import models from '../../models'
 
 const Airline = ({ airline }) => {
   

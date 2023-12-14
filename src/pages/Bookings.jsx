@@ -11,7 +11,7 @@ const Component = ({header}) => {
 
 }
 
-const options = [
+const tabs = [
   { label:"About", component: <div>This is a component</div> },
   { label:"More Info", component: <Component />}
 
@@ -24,7 +24,7 @@ const PastBookings = () => {
       <h2>Past Bookings</h2>
 
 
-      <MyTabs options={options} />
+      <MyTabs tabs={tabs} />
 
       <button 
         className="btn"
